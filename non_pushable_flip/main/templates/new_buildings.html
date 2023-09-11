@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>New Buildings</h1>
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 70%">
+<colgroup>
+<col style="width: 25px">
+<col style="width: 23px">
+<col style="width: 23px">
+<col style="width: 23px">
+<col style="width: 23px">
+<col style="width: 23px">
+<col style="width: 23px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-0lax">Building Name</th>
+    <th class="tg-0lax">Type</th>
+    <th class="tg-0lax">Master Project</th>
+    <th class="tg-0lax">Project</th>
+    <th class="tg-0lax">Area Name</th>
+    <th class="tg-0lax">Area ID</th>
+    <th class="tg-0lax">Actions</th>
+  </tr>
+</thead>
+<tbody>
+{% for data in dataset %}
+  <tr>
+    <td class="tg-0lax">{{ data.building_name_en }}</td>
+    <td class="tg-0lax">{{ data.property_type_en }}</td>
+    <td class="tg-0lax">{{ data.master_project_en }}</td>
+    <td class="tg-0lax">{{ data.project_name_en }}</td>
+    <td class="tg-0lax">{{ data.area_name_en }}</td>
+    <td class="tg-0lax">{{ data.area_id }}</td>
+    <td class="tg-0lax"><a class="nav-link active" href="{% url 'projects_add_bldgs' data.building_name_en  %}">Add New Project</a><a class="nav-link active" href="{% url 'building_add' data.building_name_en  data.area_id %}">Add to reference</a></td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

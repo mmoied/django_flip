@@ -1,0 +1,9 @@
+
+{% extends "base.html" %}
+{% block content %}
+yup you are here
+<form action="{% url 'run_sh' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="..." onclick="return confirm('Are you sure?');" >Call</button>
+</form>
+{% endblock %}

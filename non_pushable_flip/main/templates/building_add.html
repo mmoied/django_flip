@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+ Projects
+<form action = "" method="post">
+    {% csrf_token %}
+    {{form_projects.as_ul }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
